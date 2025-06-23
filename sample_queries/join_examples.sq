@@ -1,1 +1,56 @@
+-- 1. List all orders with customer names
+SELECT o.order_id, c.name, o.amount
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id;
 
+-- 2. Show products and their categories
+SELECT p.product_name, cat.category_name
+FROM products p
+LEFT JOIN categories cat ON p.category_id = cat.category_id;
+
+-- 3. List order items with order and product info
+SELECT oi.order_item_id, o.order_id, p.product_name, oi.quantity
+FROM order_items oi
+JOIN orders o ON oi.order_id = o.order_id
+JOIN products p ON oi.product_id = p.product_id;
+
+-- 4. Find customers who have placed orders
+SELECT DISTINCT c.name
+FROM customers c
+INNER JOIN orders o ON c.customer_id = o.customer_id;
+
+-- 5. List orders with salesperson names
+SELECT o.order_id, s.name AS salesperson, o.amount
+FROM orders o
+JOIN salespersons s ON o.salesperson_id = s.salesperson_id;
+
+-- 6. Orders and their shipping addresses
+SELECT o.order_id, c.name, a.address
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+JOIN addresses a ON c.customer_id = a.customer_id;
+
+-- 7. Products never ordered
+SELECT p.product_name
+FROM products p
+LEFT JOIN order_items oi ON p.product_id = oi.product_id
+WHERE oi.order_item_id IS NULL;
+
+-- 8. Orders containing products from a specific category
+SELECT o.order_id
+FROM orders o
+JOIN order_items oi ON o.order_id = oi.order_id
+JOIN products p ON oi.product_id = p.product_id
+WHERE p.category_id = 2;
+
+-- 9. Number of orders per customer
+SELECT c.name, COUNT(o.order_id) AS num_orders
+FROM customers c
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+GROUP BY c.name;
+
+-- 10. Customers and their last order date
+SELECT c.name, MAX(o.order_date) AS last_order
+FROM customers c
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+GROUP BY c.name;
