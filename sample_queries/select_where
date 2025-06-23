@@ -1,1 +1,29 @@
+-- 1. Select customers from the city 'Paris'
+SELECT * FROM customers WHERE city = 'Paris';
 
+-- 2. Select orders with amount less than 500
+SELECT * FROM orders WHERE amount < 500;
+
+-- 3. Select products with category_id 3
+SELECT * FROM products WHERE category_id = 3;
+
+-- 4. Select employees hired after 2020-01-01
+SELECT * FROM employees WHERE hire_date > '2020-01-01';
+
+-- 5. Select customers whose name contains 'Smith'
+SELECT * FROM customers WHERE name LIKE '%Smith%';
+
+-- 6. Select orders not yet shipped
+SELECT * FROM orders WHERE shipped = 0;
+
+-- 7. Select products with price between 100 and 200
+SELECT * FROM products WHERE price BETWEEN 100 AND 200;
+
+-- 8. Select customers not from 'Berlin'
+SELECT * FROM customers WHERE city != 'Berlin';
+
+-- 9. Select orders placed on '2024-06-01'
+SELECT * FROM orders WHERE order_date = '2024-06-01';
+
+-- 10. Select employees with NULL manager_id
+SELECT * FROM employees WHERE manager_id IS NULL;
