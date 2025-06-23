@@ -1,1 +1,29 @@
+-- 1. Total number of customers
+SELECT COUNT(*) AS total_customers FROM customers;
 
+-- 2. Total amount of all orders
+SELECT SUM(amount) AS total_order_amount FROM orders;
+
+-- 3. Number of products in each category
+SELECT category_id, COUNT(*) AS num_products FROM products GROUP BY category_id;
+
+-- 4. Total quantity sold per product
+SELECT product_id, SUM(quantity) AS total_quantity_sold FROM order_items GROUP BY product_id;
+
+-- 5. Number of employees in each department
+SELECT department_id, COUNT(*) AS num_employees FROM employees GROUP BY department_id;
+
+-- 6. Total payments received in 2024
+SELECT SUM(amount) AS total_payments_2024 FROM payments WHERE YEAR(payment_date) = 2024;
+
+-- 7. Number of orders per customer
+SELECT customer_id, COUNT(order_id) AS orders_count FROM orders GROUP BY customer_id;
+
+-- 8. Total sales per salesperson
+SELECT salesperson_id, SUM(amount) AS total_sales FROM sales GROUP BY salesperson_id;
+
+-- 9. Number of reviews per product
+SELECT product_id, COUNT(review_id) AS num_reviews FROM reviews GROUP BY product_id;
+
+-- 10. Number of unique cities with customers
+SELECT COUNT(DISTINCT city) AS unique_cities FROM customers;
