@@ -46,7 +46,7 @@ This repository showcases my SQL skills through a variety of sample queries, dat
 
 - **Author:** Humaira Talha
 - **Contact:** humaira.talha@icloud.com
-- **LinkedIn:** www.linkedin.com/in/humaira-the-analyst
+- **LinkedIn:** www.linkedin.com/in/humairatalha
 
 
 ---
